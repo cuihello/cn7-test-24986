@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Icon, Button } from 'choerodon-ui';
+import { Menu, Icon, Button } from 'choerodon-ui/lib/index';
 const SubMenu = Menu.SubMenu;
 export default class App extends React.Component {
     state = {
@@ -16,7 +16,7 @@ export default class App extends React.Component {
         return (
             <div style={{ width: 256 }}>
                 <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-                    <Icon type={this.state.collapsed ? 'folder_open' : 'folder'} />
+                    <Icon type="menu" style={{fontSize: 26}} />
                 </Button>
                 <Menu
                     defaultSelectedKeys={['1']}
@@ -26,28 +26,29 @@ export default class App extends React.Component {
                 >
                     <Menu.Item key="1">
                         <Icon type="pie_chart_outlined" />
-                        <span>Option 1</span>
+                        <span>关联角色</span>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <Icon type="desktop_windows" />
-                        <span>Option 2</span>
+                        <span>lable菜单</span>
                     </Menu.Item>
                     <Menu.Item key="3">
                         <Icon type="inbox" />
-                        <span>Option 3</span>
+                        <span>文档管理</span>
                     </Menu.Item>
-                    <SubMenu key="sub1" title={<span><Icon type="mail_outline" /><span>Navigation One</span></span>}>
-                        <Menu.Item key="5">Option 5</Menu.Item>
-                        <Menu.Item key="6">Option 6</Menu.Item>
-                        <Menu.Item key="7">Option 7</Menu.Item>
-                        <Menu.Item key="8">Option 8</Menu.Item>
+                    <SubMenu key="sub1" title={<span><Icon type="mail_outline" /><span>信息管理</span></span>}>
+                        <Menu.Item key="5">部门信息</Menu.Item>
+                        <Menu.Item key="6">员工信息</Menu.Item>
+                        <Menu.Item key="7">通知信息</Menu.Item>
+                        <Menu.Item key="8">热点信息</Menu.Item>
                     </SubMenu>
-                    <SubMenu key="sub2" title={<span><Icon type="apps" /><span>Navigation Two</span></span>}>
-                        <Menu.Item key="9">Option 9</Menu.Item>
-                        <Menu.Item key="10">Option 10</Menu.Item>
-                        <SubMenu key="sub3" title="Submenu">
-                            <Menu.Item key="11">Option 11</Menu.Item>
-                            <Menu.Item key="12">Option 12</Menu.Item>
+                    <SubMenu key="sub2" title={<span><Icon type="apps" /><span>其他功能</span></span>}>
+                        <Menu.Item key="9">任务管理</Menu.Item>
+                        <Menu.Item key="10">应用管理</Menu.Item>
+                        <SubMenu key="sub3" title="DevOps管理">
+                            <Menu.Item key="11">应用模板</Menu.Item>
+                            <Menu.Item key="12">集群管理</Menu.Item>
+                            <Menu.Item key="13">证书管理</Menu.Item>
                         </SubMenu>
                     </SubMenu>
                 </Menu>
