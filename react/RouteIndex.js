@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import { asyncRouter, nomatch } from '@choerodon/boot';
-const Admin = asyncRouter(() => import('./component/admin'));
 const Project = asyncRouter(() => import('./component/project'));
 const Home = asyncRouter(() => import('./home/index'));
 const Application = asyncRouter(() => import('./component/application'));
@@ -15,7 +14,6 @@ class DEMOIndex extends React.Component {
         const { match, AppState } = this.props;
         return (
             <Switch>
-                <Route path={`${match.url}/adm`} component={Admin} />
                 <Route path={`${match.url}/project`} component={Project} />
                 <Route path={`${match.url}/home`} component={Home} />
                 <Route path={`${match.url}/application`} component={Application} />

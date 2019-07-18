@@ -13,7 +13,7 @@ export default class Master extends Component {
         <div>
           <div>
             <div className="nav">
-              <NavLink to="/24986/home" className="navlink"><div className="base first-block"><img className="nav-img" src={this.url1}/></div></NavLink>
+              <NavLink to="/" className="navlink"><div className="base first-block"><img className="nav-img" src={this.url1}/></div></NavLink>
               <div className="base second-block">
                 <NavLink  to="/24986/teamwork" className="navlink"> <div className="fir-block"><Icon className="icon"type="sync_user" /><span className="fon">协作链接</span></div></NavLink>
                 <div className="fir-block"><NavLink className="navlink" to="/24986/project"><Icon className="icon"type="project_line" /><span className="fon">项目</span></NavLink></div>

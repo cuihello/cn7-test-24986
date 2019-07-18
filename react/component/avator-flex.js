@@ -3,11 +3,12 @@ import '../style/nav.less'
 import {NavLink} from 'react-router-dom'
 import React from 'react'
 import store from '../role/store'
+import {getSeting} from '../role/index'
 const url2=require("../style/image/ava.jpg")
 const menu = (
     <Menu>
         <Menu.Item key="0">
-            <NavLink to="/24986/adm" target="_parent">
+            <NavLink to="/24986/home" target="_parent">
                 <div>
                     <div style={{display:"flex"}}>
                     <div><Avatar size="large" src={url2} shape="circle" /></div>
@@ -44,6 +45,9 @@ const menu = (
 );
 
 export class Avators extends React.Component{
+    componentDidMount() {
+        getSeting()
+    }
     render(){
         return(<div>
             <Dropdown overlay={menu} trigger={['click']}>
