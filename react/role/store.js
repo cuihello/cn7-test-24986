@@ -1,14 +1,18 @@
 import {observable,action,computed} from "mobx";
 class Store {
     @observable data={
-        usename:"管理员",
-        email:"admin@example.org",
-        mobilephone:"18314568098",
+        imageurl:"",
+        usename:"hello",
+        realname:"",
+        email:"ssss@email",
+        mobilephone:"",
         language:"简体中文",
         organizationname:"",
         organizationid: ""
     }
     @action setData(nda){
+        this.data.imageurl=nda.imageurl;
+        this.data.realname=nda.realname;
         this.data.usename=nda.usename;
         this.data.email=nda.email;
         this.data.mobilephone=nda.mobilephone;

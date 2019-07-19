@@ -8,6 +8,7 @@ const Application = asyncRouter(() => import('./component/application'));
 const Knowledge = asyncRouter(() => import('./component/knowledge'));
 const Teamwork = asyncRouter(() => import('./component/teamwork'));
 const Manage = asyncRouter(() => import('./component/manage'));
+const First = asyncRouter(() => import('./home/first'));
 @inject('AppState')
 class DEMOIndex extends React.Component {
     render() {
@@ -15,11 +16,12 @@ class DEMOIndex extends React.Component {
         return (
             <Switch>
                 <Route path={`${match.url}/project`} component={Project} />
-                <Route path={`${match.url}/home`} component={Home} />
                 <Route path={`${match.url}/application`} component={Application} />
                 <Route path={`${match.url}/knowledge`} component={Knowledge} />
                 <Route path={`${match.url}/teamwork`} component={Teamwork} />
                 <Route path={`${match.url}/manage`} component={Manage} />
+                <Route path={`${match.url}/first`} component={First} />
+                <Route path={`${match.url}/`} component={Home} />
                 <Route path="*" component={nomatch} />
             </Switch>
         );

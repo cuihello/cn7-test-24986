@@ -1,18 +1,19 @@
 import { Menu, Dropdown, Icon, Button,Avatar } from 'choerodon-ui';
 import '../style/nav.less'
+import {observer} from 'mobx-react'
 import {NavLink} from 'react-router-dom'
 import React from 'react'
 import store from '../role/store'
-import {getSeting} from '../role/index'
+import {getPeopleMessage} from '../role/index'
 const url2=require("../style/image/ava.jpg")
 const menu = (
     <Menu>
         <Menu.Item key="0">
-            <NavLink to="/24986/home" target="_parent">
+            <NavLink to="/24986/first" target="_parent">
                 <div>
                     <div style={{display:"flex"}}>
                     <div><Avatar size="large" src={url2} shape="circle" /></div>
-                    <div style={{marginLeft:"15px"}}><span className="setc">{store.getData.usename}</span><br/>
+                    <div style={{marginLeft:"15px"}}><span className="setc">{console.log(store.data)}{console.log(store.data.email)}</span><br/>
                     <span className="setc">{store.getData.email}</span></div>
                     </div>
                 </div>
@@ -44,9 +45,10 @@ const menu = (
     </Menu>
 );
 
+@observer
 export class Avators extends React.Component{
     componentDidMount() {
-        getSeting()
+        getPeopleMessage()
     }
     render(){
         return(<div>
