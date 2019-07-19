@@ -14,8 +14,6 @@ import store from './store'
         nda.organizationid=data.organizationId
         nda.language=data.language
         store.setData(nda)
-        console.log(store.getData)
-        console.log(store.getData.email)
     }).catch(error=>{
         alert('请求错误')
         console.log(error)

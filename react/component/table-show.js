@@ -1,5 +1,10 @@
-import { Table, Button } from 'choerodon-ui';
+import {Table,Dropdown, Icon, Button, Menu} from 'choerodon-ui';
+import {axios} from '@choerodon/boot'
+import {Drop} from "./downselect";
 import React from 'react'
+import store1 from '../role/store1'
+import {Getmes} from '../role/getmes'
+import {observer} from 'mobx-react'
 const columns = [{
     title: '名称',
     dataIndex: 'name',
@@ -23,7 +28,7 @@ const columns = [{
     onFilter: (value, record) => record.name.indexOf(value) === 0,
 }, {
     title: '层级',
-    dataIndex: 'address',
+    dataIndex: 'level',
     filters: [{
         text: 'London',
         value: 'London',
@@ -36,7 +41,7 @@ const columns = [{
     sorter: (a, b) => a.address.length - b.address.length,
 }, {
     title: '来源',
-    dataIndex: 'address',
+    dataIndex: 'source',
     filters: [{
         text: 'London',
         value: 'London',
@@ -49,7 +54,7 @@ const columns = [{
     sorter: (a, b) => a.address.length - b.address.length,
 }, {
     title: '状态',
-    dataIndex: 'address',
+    dataIndex: 'state',
     filters: [{
         text: 'London',
         value: 'London',
@@ -62,35 +67,48 @@ const columns = [{
     sorter: (a, b) => a.address.length - b.address.length,
 }
 ];
+const i=0
+const data = [];
+for(let i in store1.list){
+    console.log(i,store1.list.name,data)
+   data.push({
+       key:i+1,
+       name:store1.list.name,
+       code:store1.list.code,
+       level:store1.list.level,
+       source:"自定义",
+       state:"启用",
+   });
+}
 
 
-const data = [{
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-}, {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-}, {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-}, {
-    key: '4',
-    name: 'Jim Red',
-    age: 32,
-    address: 'London No. 2 Lake Park',
-}];
 
 function onChange(pagination, filters, sorter) {
     console.log('params', pagination, filters, sorter);
 }
 
+@observer
 export class Tables extends React.Component {
+    componentDidMount() {
+        const des={
+            code: '',
+            level: '',
+            params: [],
+            name: '',
+            enabled: 'true',
+            buildIn: 'true'
+        }
+        axios.post( `/iam/v1/roles/search?page=1&size=10&sort=id,desc`,des).
+        then(data=>{
+            console.log(data)
+            store1.setData(data)
+            console.log(store1.getData,store1.getData.list)
+        }).catch(error=>{
+            alert('请求错误')
+            console.log(error)
+        })
+    }
+
     state = {
         selectedRowKeys: [], // Check here to configure the default column
         loading: false,
@@ -121,16 +139,9 @@ export class Tables extends React.Component {
         const hasSelected = selectedRowKeys.length > 0;
         return (
             <div>
-                <div style={{ marginBottom: 16 }}>
-                    <span>角色管理</span>
-                    <Button
-                        type="primary"
-                        onClick={this.start}
-                        disabled={hasSelected}
-                        loading={loading}
-                    >
-                        组织
-                    </Button>
+                <div style={{ marginBottom: 16,display:"flex" }}>
+                    <span style={{fontSize:"20px", marginRight:"10px",marginLeft:"5px"}}>角色管理</span>
+                    <Drop />
                     <Button
                         type="primary"
                         onClick={this.start}
@@ -155,6 +166,7 @@ export class Tables extends React.Component {
                     >
                         刷新
                     </Button>
+                    <span>{console.log(store1.getData,9999999)}</span>
                     <span style={{ marginLeft: 8 }}>
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
           </span>
