@@ -3,11 +3,11 @@ import {axios} from '@choerodon/boot'
 import {Drop} from "./downselect";
 import React from 'react'
 import store1 from '../role/store1'
-import {Getmes} from '../role/getmes'
 import {observer} from 'mobx-react'
 const columns = [{
     title: '名称',
     dataIndex: 'name',
+    width:'200px',
     filters: [{
         text: 'Joe',
         value: 'Joe',
@@ -22,6 +22,7 @@ const columns = [{
 }, {
     title: '编码',
     dataIndex: 'code',
+    width:"200px",
     defaultSortOrder: 'descend',
     sorter: (a, b) => a.code - b.code,
     filters: [],
@@ -29,6 +30,7 @@ const columns = [{
 }, {
     title: '层级',
     dataIndex: 'level',
+    width:"200px",
     filters: [{
         text: 'London',
         value: 'London',
@@ -42,6 +44,7 @@ const columns = [{
 }, {
     title: '来源',
     dataIndex: 'source',
+    width:"200px",
     filters: [{
         text: 'London',
         value: 'London',
@@ -55,6 +58,7 @@ const columns = [{
 }, {
     title: '状态',
     dataIndex: 'state',
+    width:"200px",
     filters: [{
         text: 'London',
         value: 'London',
@@ -67,21 +71,6 @@ const columns = [{
     sorter: (a, b) => a.address.length - b.address.length,
 }
 ];
-const i=0
-const data = [];
-for(let i in store1.list){
-    console.log(i,store1.list.name,data)
-   data.push({
-       key:i+1,
-       name:store1.list.name,
-       code:store1.list.code,
-       level:store1.list.level,
-       source:"自定义",
-       state:"启用",
-   });
-}
-
-
 
 function onChange(pagination, filters, sorter) {
     console.log('params', pagination, filters, sorter);
@@ -100,9 +89,7 @@ export class Tables extends React.Component {
         }
         axios.post( `/iam/v1/roles/search?page=1&size=10&sort=id,desc`,des).
         then(data=>{
-            console.log(data)
             store1.setData(data)
-            console.log(store1.getData,store1.getData.list)
         }).catch(error=>{
             alert('请求错误')
             console.log(error)
@@ -131,6 +118,22 @@ export class Tables extends React.Component {
     }
 
     render() {
+        const i=0
+        const data = store1.getData.list;
+
+        console.log(4444444444)
+        for(let i in store1.list){
+            console.log(i,2222)
+            data.push({
+                key:i+1,
+                name:store1.list.name,
+                code:store1.list.code,
+                level:store1.list.level,
+                source:"自定义",
+                state:"启用",
+            });
+        }
+
         const { loading, selectedRowKeys } = this.state;
         const rowSelection = {
             selectedRowKeys,
@@ -166,7 +169,7 @@ export class Tables extends React.Component {
                     >
                         刷新
                     </Button>
-                    <span>{console.log(store1.getData,9999999)}</span>
+                    <span>{console.log(store1.getData.list,66666)}</span>
                     <span style={{ marginLeft: 8 }}>
             {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
           </span>

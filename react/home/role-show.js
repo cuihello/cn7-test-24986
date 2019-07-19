@@ -8,9 +8,7 @@ export default class Roleshow extends React.Component{
             <div style={{display:"flex"}}>
             <div><App/></div>
             <div>
-                <div></div>
                 <div><Tables /></div>
-                <div></div>
             </div>
         </div>)
     }
