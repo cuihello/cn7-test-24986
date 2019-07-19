@@ -9,6 +9,7 @@ const Knowledge = asyncRouter(() => import('./component/knowledge'));
 const Teamwork = asyncRouter(() => import('./component/teamwork'));
 const Manage = asyncRouter(() => import('./component/manage'));
 const First = asyncRouter(() => import('./home/first'));
+const Role = asyncRouter(() => import('./home/role-show'));
 @inject('AppState')
 class DEMOIndex extends React.Component {
     render() {
@@ -21,6 +22,8 @@ class DEMOIndex extends React.Component {
                 <Route path={`${match.url}/teamwork`} component={Teamwork} />
                 <Route path={`${match.url}/manage`} component={Manage} />
                 <Route path={`${match.url}/first`} component={First} />
+                <Route path={`${match.url}/role`} component={Role} />
+
                 <Route path={`${match.url}/`} component={Home} />
                 <Route path="*" component={nomatch} />
             </Switch>

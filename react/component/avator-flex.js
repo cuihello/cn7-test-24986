@@ -13,7 +13,7 @@ const menu = (
                 <div>
                     <div style={{display:"flex"}}>
                     <div><Avatar size="large" src={url2} shape="circle" /></div>
-                    <div style={{marginLeft:"15px"}}><span className="setc">{console.log(store.data)}{console.log(store.data.email)}</span><br/>
+                    <div style={{marginLeft:"15px"}}><span className="setc">{store.getData.realname}</span><br/>
                     <span className="setc">{store.getData.email}</span></div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ const menu = (
 @observer
 export class Avators extends React.Component{
     componentDidMount() {
-        getPeopleMessage()
+        getPeopleMessage();
     }
     render(){
         return(<div>
