@@ -12,14 +12,6 @@ class Store {
     }
     @action setData(nda){
         this.data=nda;
-        this.data.imageurl=nda.imageurl;
-        this.data.realname=nda.realname;
-        this.data.usename=nda.usename;
-        this.data.email=nda.email;
-        this.data.mobilephone=nda.mobilephone;
-        this.data.language=nda.language;
-        this.data.organizationname=nda.organizationname;
-        this.data.organizationid=nda.organizationid;
     }
     @computed get getData(){
         return this.data;

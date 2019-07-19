@@ -12,6 +12,7 @@ import store from './store'
         nda.realname=data.realName
         nda.mobilephone=data.phone
         nda.organizationid=data.organizationId
+        nda.language=data.language
         store.setData(nda)
         console.log(store.getData)
         console.log(store.getData.email)
