@@ -3,6 +3,7 @@ import {axios} from '@choerodon/boot'
 import {Drop} from "./downselect";
 import React from 'react'
 import store1 from '../role/store1'
+import store3 from '../role/store3'
 import {observer} from 'mobx-react'
 const columns = [{
     title: '名称',
@@ -109,9 +110,10 @@ export class Tables extends React.Component {
                 selectedRowKeys: [],
                 loading: false,
             });
-        }, 1000);
+        }, 100);
     }
 
+    change=()=>{store3.setState();}
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
@@ -147,9 +149,7 @@ export class Tables extends React.Component {
                     <Drop />
                     <Button
                         type="primary"
-                        onClick={this.start}
-                        disabled={hasSelected}
-                        loading={loading}
+                        onClick={this.change}
                     >
                         创建角色
                     </Button>
