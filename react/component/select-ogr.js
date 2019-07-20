@@ -3,23 +3,23 @@ import React from 'react'
 const menu = (
     <Menu>
         <Menu.Item key="0">
-            <a href="https://github.com/choerodon">运营组织</a>
+            <a href="#">运营组织</a>
         </Menu.Item>
         <Menu.Item key="1">
-            <a href="https://github.com/choerodon">测试组织</a>
+            <a href="#">测试组织</a>
         </Menu.Item>
         <Menu.Item key="2">
-            <a href="https://github.com/choerodon">敏捷测试</a>
+            <a href="#">敏捷测试</a>
         </Menu.Item>
         <Menu.Item key="3">猪齿鱼</Menu.Item>
         <Menu.Item key="4">
             <a href="https://github.com/choerodon">重新测试组织</a>
         </Menu.Item>
         <Menu.Item key="5">
-            <a href="https://github.com/choerodon">猪齿鱼产品运营</a>
+            <a href="#">猪齿鱼产品运营</a>
         </Menu.Item>
         <Menu.Item key="6">
-            <a href="https://github.com/choerodon">演示测试组织</a>
+            <a href="#">演示测试组织</a>
         </Menu.Item>
     </Menu>
 );

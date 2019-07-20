@@ -13,7 +13,7 @@ export class Create extends React.Component{
     render() {
         return(
             <div>
-            <div style={{borderBottom:"gray solid 2px",width:"1500px",height:"60px"}}>
+            <div style={{borderBottom:"gray solid 2px",width:"1000px",height:"60px"}}>
                <div style={{lineHeight:"60px"}}>
                    <Button onClick={this.change}><Icon type="arrow_back" style={{fontSize:"15px",color:"blue"}}/></Button>
                    <span style={{marginLeft:"15px"}}>创建全局层角色</span>
@@ -22,8 +22,8 @@ export class Create extends React.Component{
             </div>
             <div style={{marginLeft:"20px"}}>
                 <Row gutter={8}>
-                    <Col span={7}>
-                        <div style={{display:"flex"}}><Input size="small" prefix="role/site/custom/" required label="角色编码*"  /><span style={{marginLeft:"10px"}}></span>
+                    <Col span={10}>
+                        <div style={{display:"flex"}}><Input  prefix="role/site/custom/" required label="角色编码*"  /><span style={{marginLeft:"10px"}}></span>
                             <Input size="small"  required label="角色名称*"  />
                         </div>
                     </Col>

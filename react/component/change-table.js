@@ -1,4 +1,6 @@
 import { Card } from 'choerodon-ui';
+import {Table1} from "./table1";
+import {Table2} from "./table2";
 import React from 'react'
 const tabList = [{
     key: 'tab1',
@@ -9,8 +11,8 @@ const tabList = [{
 }];
 
 const contentList = {
-    tab1: <p>content1</p>,
-    tab2: <p>content2</p>,
+    tab1: <Table1/>,
+    tab2: <Table2/>,
 };
 
 
